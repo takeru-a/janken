@@ -10,9 +10,16 @@
   <h1>Lec02!</h1>
   <div>
     <p th:if="${username}">Hi [[${username}]]</p>
-    <p th:unless="${username}">ログインしてないです</p>
-  </div>
 
+  </div>
+  <a href="/lec02janken?hand=gu">ぐー</a>
+  <a href="/lec02janken?hand=choki">ちょき</a>
+  <a href="/lec02janken?hand=pa">ぱー</a>
+  <div th:if="${hand}">
+    <p>あなたの手 [[${hand}]]</p>
+    <p>相手の手 [[${cpuhand}]]</p>
+    <p>結果 YOU [[${result}]]</p>
+  </div>
 </body>
 
 </html>
