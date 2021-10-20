@@ -15,7 +15,7 @@ public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    auth.inMemoryAuthentication().withUser("e1b19027").password(passwordEncoder().encode("b@n@n@")).roles("USER");
+    auth.inMemoryAuthentication().withUser("ほんだ").password(passwordEncoder().encode("123")).roles("USER");
 
     // $ sshrun htpasswd -nbBC 10 master 1192
     // pass: 1192
@@ -34,5 +34,7 @@ public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
     http.authorizeRequests().antMatchers("/lec02/**").authenticated();
     // Spring Securityの機能を利用してログアウト．ログアウト時は http://localhost:8080/ に戻る
     http.logout().logoutSuccessUrl("/");
+    http.csrf().disable();
+    http.headers().frameOptions().disable();
   }
 }
