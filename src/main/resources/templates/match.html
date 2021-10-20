@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Match</title>
+</head>
+
+<body>
+  <div><a href="/logout">ログアウト</a></div>
+
+  <h1>Match!</h1>
+  <div>
+    <p th:if="${username}">[[${username}]] VS CPU</p>
+  </div>
+  <a href="/lec02janken?hand=gu">ぐー</a>
+  <a href="/lec02janken?hand=choki">ちょき</a>
+  <a href="/lec02janken?hand=pa">ぱー</a>
+  <div th:if="${hand}">
+    <p>あなたの手 [[${hand}]]</p>
+    <p>相手の手 [[${cpuhand}]]</p>
+    <p>結果 YOU [[${result}]]</p>
+  </div>
+  <br>
+  <a href="/lec02">Back</a>
+</body>
+
+</html>
