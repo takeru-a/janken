@@ -1,9 +1,10 @@
 package oit.is.z1017.kaizi.janken.model;
-public class Match {
+import org.springframework.stereotype.Component;
+@Component
+public class MatchInfo{
   int id;
   String user1Hand;
   int user1;
-  String user2Hand;
   int user2;
   boolean isActive;
 
@@ -34,14 +35,6 @@ public class Match {
     this.user1Hand = user1Hand;
   }
 
-  public String getUser2Hand() {
-    return user2Hand;
-  }
-
-  public void setUser2Hand(String user2Hand) {
-    this.user2Hand = user2Hand;
-  }
-
   public int getId() {
     return id;
   }
@@ -56,5 +49,4 @@ public class Match {
   public void setIsActive(boolean isActive) {
     this.isActive = isActive;
   }
-
 }
