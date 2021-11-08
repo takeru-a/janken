@@ -15,7 +15,10 @@ public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    auth.inMemoryAuthentication().withUser("ほんだ").password(passwordEncoder().encode("123")).roles("USER");
+    auth.inMemoryAuthentication().withUser("コダマ").password(passwordEncoder().encode("123")).roles("USER");
+    //pass:234
+    auth.inMemoryAuthentication().withUser("トマト").password("$2y$10$/ddTgTUEeTbLN8yUX54UUO9TJWArdaIIufy4Bu6maNMYdF5CD8o/y"
+).roles("USER");
 
     // $ sshrun htpasswd -nbBC 10 master 1192
     // pass: 1192

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>lec02</title>
+</head>
+
+<body>
+  <div><a href="/logout">ログアウト</a></div>
+
+  <h1>相手の手を待ってます</h1>
+  <p th:if="${login_user}">Hi [[${login_user}]]</p>
+  <h1>試合結果</h1>
+  <p th:if="${matches}">
+  <div th:each="match,stat:${matches}">
+    <tr>
+      <td>ID:[[${match.id}]]</td>
+      <td>ユーザ1(ID):[[${match.user1}]]</td>
+      <td>ユーザ2(ID):[[${match.user2}]]</td>
+      <td>ユーザ1の手:[[${match.user1Hand}]]</td>
+      <td>ユーザ2の手:[[${match.user2Hand}]]</td>
+    </tr>
+    <a href="/lec02">Back</a>
+  </div>
+  </p>
+
+
+
+
+</html>

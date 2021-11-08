@@ -10,23 +10,31 @@
   <div><a href="/logout">ログアウト</a></div>
 
   <h1>Lec02!</h1>
-  <div th:if="${room}">
-    エントリー
-    <ul>
-      <li th:each="user : ${room.users}"><a th:href="@{/match(name=${user})}"> [[${user}]]</a></li>
-    </ul>
-  </div>
-  <p th:if="${Users}">
-  <div th:each="user,stat:${Users}">
-    <tr>
-      <td>ID:[[${user.id}]]</td>
-      <td>ユーザ名:[[${user.name}]]</td>
-    </tr>
-  </div>
-  </p>
   <div>
     <p th:if="${login_user}">Hi [[${login_user}]]</p>
   </div>
+  <h1>エントリー</h1>
+  <p th:if="${Users}">
+  <div th:each="user,stat:${Users}">
+    <ul>
+      <li><a th:href="@{/match(id=${user.id})}"> [[${user.name}]]</a></li>
+    </ul>
+  </div>
+  </p>
+  <h1>アクティブな試合</h1>
+  <p th:if="${matchinfo}">
+  <div th:each="matchinfo,stat:${matchinfos}">
+    <tr>
+      <td>ID:[[${matchinfo.id}]]</td>
+      <td>ユーザ1(ID):[[${matchinfo.user1}]]</td>
+      <td>ユーザ2(ID):[[${matchinfo.user2}]]</td>
+      <td>isActive:[[${matchinfo.isActive}]]</td>
+
+
+    </tr>
+  </div>
+  </p>
+  <h1>試合結果</h1>
   <p th:if="${Matches}">
   <div th:each="match,stat:${Matches}">
     <tr>
