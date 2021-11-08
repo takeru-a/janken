@@ -20,12 +20,12 @@ import oit.is.z1017.kaizi.janken.model.Match;
 import oit.is.z1017.kaizi.janken.model.MatchMapper;
 import oit.is.z1017.kaizi.janken.model.MatchInfoMapper;
 import oit.is.z1017.kaizi.janken.model.MatchInfo;
-import oit.is.z1017.kaizi.janken.service.AsyncKekka;
+//import oit.is.z1017.kaizi.janken.service.AsyncKekka;
 
 @Controller
 public class Lec02Controller{
-  @Autowired
-  AsyncKekka kka;
+  //@Autowired
+  //AsyncKekka kka;
   @Autowired
   private Entry entry;
   @Autowired
@@ -56,23 +56,15 @@ public class Lec02Controller{
   String loginUser = prin.getName();
   String myhand = hand;
   User user1 = userMapper.selectByname(loginUser);
-  ArrayList<Match> matches = matchMapper.selectActiveMatch();
+  //ArrayList<Match> matches = matchMapper.selectActiveMatch();
   matchinfo.setUser1(user1.getId());
   matchinfo.setUser1Hand(myhand);
   matchinfo.setIsActive(true);
   model.addAttribute("login_user", loginUser);
-  if (matchinfoMapper.selectByuser(user1.getId())){
-    matchinfo = matchinfoMapper.selectByuser(user1.getId())
-    match.setUser1 = matchinfo.getUser2();
-    match.setUser2 = user1.getId();
-    match.setUser1Hand = matchinfo.getUser1Hand();
-    match.setUser2Hand = myhand;
-    match.setIsActive = true;
-    matchMapper.insertMatch(Match match);
-  }else{
-    matchinfoMapper.insertMatchInfo(matchinfo);
-  }
-  model.addAttribute("matches",matches);
+
+  matchinfoMapper.insertMatchInfo(matchinfo);
+
+
 
   return "wait.html";
   }
@@ -108,12 +100,7 @@ public class Lec02Controller{
     return "lec02.html";
   }
 
-  @GetMapping("lec02janken")
-  public SseEmitter kekka() {
-    final SseEmitter sseEmitter = new SseEmitter();
-    this.kka.kekka(sseEmitter);
-    return sseEmitter;
-  }
+
 
 
 }
